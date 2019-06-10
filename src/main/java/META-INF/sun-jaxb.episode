@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.11 生成的
+请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+在重新编译源模式时, 对此文件的所有修改都将丢失。
+生成时间: 2019.06.10 时间 04:07:53 PM CST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://localhost/services/HrmService">
+    <schemaBindings map="false">
+      <package name="com.dexcoder.ws"/>
+    </schemaBindings>
+    <bindings scd="tns:changeUserPassword">
+      <class ref="com.dexcoder.ws.ChangeUserPassword"/>
+    </bindings>
+    <bindings scd="tns:changeUserPasswordResponse">
+      <class ref="com.dexcoder.ws.ChangeUserPasswordResponse"/>
+    </bindings>
+    <bindings scd="tns:getHrmJobTitleInfoXML">
+      <class ref="com.dexcoder.ws.GetHrmJobTitleInfoXML"/>
+    </bindings>
+    <bindings scd="tns:getHrmJobTitleInfoXMLResponse">
+      <class ref="com.dexcoder.ws.GetHrmJobTitleInfoXMLResponse"/>
+    </bindings>
+    <bindings scd="tns:getHrmDepartmentInfoXML">
+      <class ref="com.dexcoder.ws.GetHrmDepartmentInfoXML"/>
+    </bindings>
+    <bindings scd="tns:getHrmDepartmentInfoXMLResponse">
+      <class ref="com.dexcoder.ws.GetHrmDepartmentInfoXMLResponse"/>
+    </bindings>
+    <bindings scd="tns:SynSubCompany">
+      <class ref="com.dexcoder.ws.SynSubCompany"/>
+    </bindings>
+    <bindings scd="tns:SynSubCompanyResponse">
+      <class ref="com.dexcoder.ws.SynSubCompanyResponse"/>
+    </bindings>
+    <bindings scd="tns:getHrmJobTitleInfo">
+      <class ref="com.dexcoder.ws.GetHrmJobTitleInfo"/>
+    </bindings>
+    <bindings scd="tns:getHrmJobTitleInfoResponse">
+      <class ref="com.dexcoder.ws.GetHrmJobTitleInfoResponse"/>
+    </bindings>
+    <bindings scd="tns:getHrmSubcompanyInfo">
+      <class ref="com.dexcoder.ws.GetHrmSubcompanyInfo"/>
+    </bindings>
+    <bindings scd="tns:getHrmSubcompanyInfoResponse">
+      <class ref="com.dexcoder.ws.GetHrmSubcompanyInfoResponse"/>
+    </bindings>
+    <bindings scd="tns:SynDepartment">
+      <class ref="com.dexcoder.ws.SynDepartment"/>
+    </bindings>
+    <bindings scd="tns:SynDepartmentResponse">
+      <class ref="com.dexcoder.ws.SynDepartmentResponse"/>
+    </bindings>
+    <bindings scd="tns:getHrmUserInfo">
+      <class ref="com.dexcoder.ws.GetHrmUserInfo"/>
+    </bindings>
+    <bindings scd="tns:getHrmUserInfoResponse">
+      <class ref="com.dexcoder.ws.GetHrmUserInfoResponse"/>
+    </bindings>
+    <bindings scd="tns:checkUser">
+      <class ref="com.dexcoder.ws.CheckUser"/>
+    </bindings>
+    <bindings scd="tns:checkUserResponse">
+      <class ref="com.dexcoder.ws.CheckUserResponse"/>
+    </bindings>
+    <bindings scd="tns:SynHrmResource">
+      <class ref="com.dexcoder.ws.SynHrmResource"/>
+    </bindings>
+    <bindings scd="tns:SynHrmResourceResponse">
+      <class ref="com.dexcoder.ws.SynHrmResourceResponse"/>
+    </bindings>
+    <bindings scd="tns:getHrmDepartmentInfo">
+      <class ref="com.dexcoder.ws.GetHrmDepartmentInfo"/>
+    </bindings>
+    <bindings scd="tns:getHrmDepartmentInfoResponse">
+      <class ref="com.dexcoder.ws.GetHrmDepartmentInfoResponse"/>
+    </bindings>
+    <bindings scd="tns:SynJobtitle">
+      <class ref="com.dexcoder.ws.SynJobtitle"/>
+    </bindings>
+    <bindings scd="tns:SynJobtitleResponse">
+      <class ref="com.dexcoder.ws.SynJobtitleResponse"/>
+    </bindings>
+    <bindings scd="tns:getHrmSubcompanyInfoXML">
+      <class ref="com.dexcoder.ws.GetHrmSubcompanyInfoXML"/>
+    </bindings>
+    <bindings scd="tns:getHrmSubcompanyInfoXMLResponse">
+      <class ref="com.dexcoder.ws.GetHrmSubcompanyInfoXMLResponse"/>
+    </bindings>
+    <bindings scd="tns:getHrmUserInfoXML">
+      <class ref="com.dexcoder.ws.GetHrmUserInfoXML"/>
+    </bindings>
+    <bindings scd="tns:getHrmUserInfoXMLResponse">
+      <class ref="com.dexcoder.ws.GetHrmUserInfoXMLResponse"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="http://webservice.hrm.weaver">
+    <schemaBindings map="false">
+      <package name="com.dexcoder.ws"/>
+    </schemaBindings>
+    <bindings scd="~tns:ArrayOfJobTitleBean">
+      <class ref="com.dexcoder.ws.ArrayOfJobTitleBean"/>
+    </bindings>
+    <bindings scd="~tns:ArrayOfSubCompanyBean">
+      <class ref="com.dexcoder.ws.ArrayOfSubCompanyBean"/>
+    </bindings>
+    <bindings scd="~tns:ArrayOfUserBean">
+      <class ref="com.dexcoder.ws.ArrayOfUserBean"/>
+    </bindings>
+    <bindings scd="~tns:ArrayOfDepartmentBean">
+      <class ref="com.dexcoder.ws.ArrayOfDepartmentBean"/>
+    </bindings>
+    <bindings scd="~tns:JobTitleBean">
+      <class ref="com.dexcoder.ws.JobTitleBean"/>
+    </bindings>
+    <bindings scd="~tns:SubCompanyBean">
+      <class ref="com.dexcoder.ws.SubCompanyBean"/>
+    </bindings>
+    <bindings scd="~tns:UserBean">
+      <class ref="com.dexcoder.ws.UserBean"/>
+    </bindings>
+    <bindings scd="~tns:DepartmentBean">
+      <class ref="com.dexcoder.ws.DepartmentBean"/>
+    </bindings>
+  </bindings>
+</bindings>
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.oce</groupId>
+    <artifactId>testsync</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>testsync</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--xml转json的工具，主XmlMapper，ObjectMapper，-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.9.8</version>
+        </dependency>
+        <!--WebServiceTemplate 依赖的jar包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+            <version>2.1.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
+<!--        mybatis和mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>3.6.3</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+<!--            配置生成webservice客户端的插件-->
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.12.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <schemaLanguage>WSDL</schemaLanguage>
+<!--                    设定生成客户端的位置包名-->
+                    <generatePackage>com.dexcoder.ws</generatePackage>
+                    <generateDirectory>${basedir}/src/main/java</generateDirectory>
+<!--                    设定wsdl的连接文件或者位置-->
+                    <schemas>
+                        <schema>
+<!--                            文件-->
+                            <fileset>
+                                <!-- Defaults to schemaDirectory. -->
+                                <directory>${basedir}/src/main/resources/schemas</directory>
+                                <!-- Defaults to schemaIncludes. -->
+                                <!--<includes>
+                                    <include>*.wsdl</include>
+                                </includes>-->
+                                <!-- Defaults to schemaIncludes -->
+                                <!--<excludes>-->
+                                <!--<exclude>*.xs</exclude>-->
+                                <!--</excludes>-->
+
+                            </fileset>
+<!--                            使用url-->
+                            <url>http://10.0.10.227/services/HrmService?wsdl</url>
+                            <!--<url>http://localhost:8080/ws/countries.wsdl</url>-->
+                        </schema>
+                    </schemas>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

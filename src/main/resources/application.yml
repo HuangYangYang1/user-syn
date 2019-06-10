@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.0.50.186:3306/oa_system_db?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#mybatis配置
+#mybatis:
+##  type-aliases-package配置entity类的报名
+#  type-aliases-package: com.oce.testsync.entity
+##  mapper-locations 配置mapper的配置文件的位置
+#  mapper-locations: classpath:mapper/*.xml
