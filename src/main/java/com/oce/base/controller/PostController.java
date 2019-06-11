@@ -36,7 +36,7 @@ public class PostController {
 
     @RequestMapping(value = "/post/add",method = RequestMethod.POST)
     public boolean insertPost(TPost post){
-       return postService.isnertPost(post);
+       return postService.insertPost(post);
     }
 
     @RequestMapping(value = "/post/deleteByid/{id}",method = RequestMethod.DELETE)

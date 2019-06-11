@@ -15,7 +15,7 @@ public class PostService {
 
 
 
-    public  boolean isnertPost(TPost post){
+    public  boolean insertPost(TPost post){
         boolean flag=false;
         try{
             postMapper.insertPost(post);

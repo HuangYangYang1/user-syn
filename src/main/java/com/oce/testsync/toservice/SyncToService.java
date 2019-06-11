@@ -1,5 +1,7 @@
 package com.oce.testsync.toservice;
 
+import com.oce.base.bean.*;
+import com.oce.base.service.*;
 import com.oce.testsync.client.WsClient;
 import com.oce.testsync.domain.DepartmentBean;
 import com.oce.testsync.domain.DeptRelation;
@@ -8,7 +10,10 @@ import com.oce.testsync.domain.UserBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -19,19 +24,45 @@ import java.util.List;
 public class SyncToService {
     @Autowired
     WsClient wsClient;
-
-
-    //    获取岗位的信息,
+    @Autowired
+    DepartmentService departmentService;
+    @Autowired
+    UserDepartmentService userDepartmentService;
+    @Autowired
+    DoubleDepartmentService doubleDepartmentService;
+    @Autowired
+    UserPostService userPostService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    PostService postService;
+    @Autowired
+    UserManagerService userManagerService;
+    //    获取岗位的信息,并同步进入数据库
     public void getPositionInfo() {
         List<JobTitleBean> jobTitleBeans = wsClient.getHrmJobTitleInfoXMLRespose();
         for (JobTitleBean jobTitleBean : jobTitleBeans) {
-
+            TPost tPost = new TPost();
+            tPost.setId(Long.parseLong(jobTitleBean.getJobtitleid()));
+            tPost.setFull_name(jobTitleBean.getFullname());
+            tPost.setShort_name(jobTitleBean.getFullname());
+            tPost.setRemark(jobTitleBean.getJobtitleremark());
+            postService.insertPost(tPost);
         }
     }
     //   获取部门的信息
     public void getDepartmentInfo() {
         List<DepartmentBean> departmentBeans = wsClient.getHrmDepartmentInfoXMLResponse();
         for (DepartmentBean departmentBean : departmentBeans) {
+
+            TDepartment tDepartment = new TDepartment();
+            tDepartment.setId(Long.parseLong(departmentBean.getDepartmentid()));
+            tDepartment.setFull_name(departmentBean.getFullname());
+            tDepartment.setShort_name(departmentBean.getShortname());
+            tDepartment.setCanceled(departmentBean.getCanceled());
+            tDepartment.setShow_order(departmentBean.getShoworder());
+//            调用service方法村存入数据库
+            departmentService.isnertDepartment(tDepartment);
 
         }
     }
@@ -42,19 +73,63 @@ public class SyncToService {
         for (UserBean userBean : userBeans) {
             String userId = userBean.getUserid();
 //            获取岗位的id和当前的userid并..
-            userBean.getJobtitle();
-
+            TUserPost tUserPost = new TUserPost();
+            tUserPost.setUser_id(Long.parseLong(userId));
+            tUserPost.setPost_id(Long.parseLong(userBean.getJobtitle()));
+            userPostService.insert(tUserPost);
 
 //            获取部门id并....
-            userBean.getJobtitle();
-
-
+            TUserDepartment tUserDepartment = new TUserDepartment();
+            tUserDepartment.setUser_id(Long.parseLong(userId));
+            tUserDepartment.setDepartment_id(Long.parseLong(userBean.getDepartmentid()));
+            userDepartmentService.insert(tUserDepartment);
 //            获取上级id并...
-            userBean.getManagerid();
-
+            TUserManager tUserManager = new TUserManager();
+            tUserManager.setUser_id(Long.parseLong(userId));
+            if (!"".equals(userBean.getManagerid())){
+                tUserManager.setManager_id(Long.parseLong(userBean.getManagerid()));
+            }
+            userManagerService.insert(tUserManager);
 
 //            存当前的user
+            TUser tUser = new TUser();
+            tUser.setId(Long.parseLong(userId));
+            tUser.setEmail(userBean.getEmail());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                if (!"".equals(userBean.getBirthday())){
+                    tUser.setBirthday(simpleDateFormat.parse(userBean.getBirthday()));
+                }
+                if (!"".equals(userBean.getEnddate())){
 
+                    tUser.setEnd_date(simpleDateFormat.parse(userBean.getEnddate()));
+                }
+                if (!"".equals(userBean.getStartdate())){
+                    tUser.setStart_date(simpleDateFormat.parse(userBean.getStartdate()));
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            tUser.setFolk(userBean.getFolk());
+            tUser.setId_card(userBean.getCertificatenum());
+            tUser.setLocation_place(userBean.getLocationid());
+            tUser.setLast_name(userBean.getLastname());
+            tUser.setLogin_id(userBean.getLoginid());
+            tUser.setMarital_status(userBean.getMaritalstatus());
+            tUser.setMobile(userBean.getMobile());
+            tUser.setNative_place(userBean.getNativeplace());
+            tUser.setRegresident_place(userBean.getRegresidentplace());
+            String sex = userBean.getSex();
+            if ("女".equals(sex)){
+                tUser.setSex(1);
+            }else{
+                tUser.setSex(0);
+            }
+            tUser.setState(Long.parseLong(userBean.getStatus()));
+            tUser.setSystem_language(userBean.getSystemlanguage());
+            tUser.setTelephone(userBean.getTelephone());
+
+            userService.insertUser(tUser);
 
         }
 
@@ -70,7 +145,13 @@ public class SyncToService {
         }
         for (DeptRelation deptRelation : result) {
 //           传递存入同步数据
+            TDepartmentDepartment tDepartmentDepartment = new TDepartmentDepartment();
+            tDepartmentDepartment.setChile_dpartment_id(Long.parseLong(deptRelation.getChild()));
+            tDepartmentDepartment.setFather_departmet_id(Long.parseLong(deptRelation.getParent()));
+            tDepartmentDepartment.setIs_sub( deptRelation.getIs_sub());
 
+//            调用service方法村存入数据库
+            doubleDepartmentService.insert(tDepartmentDepartment);
             System.out.println(deptRelation);
         }
     }

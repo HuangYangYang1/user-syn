@@ -27,7 +27,21 @@ public class SyncToServiceTest {
 
 
     @Test
+    public void getDepartmentInfo() {
+        syncToService.getDepartmentInfo();
+    }
+    @Test
     public void getDepartmentRelation() {
         syncToService.getDepartmentRelation();
+    }
+    @Test
+    public void getUserInfo(){
+        syncToService.getUserInfo();
+    }
+
+    @Test
+    public void getPositionInfo(){
+        syncToService.getPositionInfo();
+
     }
 }

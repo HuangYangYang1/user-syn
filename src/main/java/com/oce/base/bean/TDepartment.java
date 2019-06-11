@@ -3,7 +3,7 @@ package com.oce.base.bean;
 
 import java.sql.Timestamp;
 
-public class TDepartment {
+public class TDepartment{
 
   private long id;
   private String short_name;
