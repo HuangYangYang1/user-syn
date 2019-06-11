@@ -6,13 +6,14 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
-
+@Configuration
 public class CommentConfig {
     /**
      * 注册MyBatis分页插件PageHelper
      */
     @Bean
     public PageHelper pageHelper() {
+        System.out.println("MyBatisConfiguration.pageHelper()");
         PageHelper pageHelper = new PageHelper();
         Properties p = new Properties();
         p.setProperty("offsetAsPageNum", "true");
