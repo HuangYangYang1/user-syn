@@ -5,7 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
-
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 添加PageHelper配置文件
+ */
 @Configuration
 public class CommentConfig {
     /**
