@@ -1,5 +1,6 @@
 package com.oce.base.service;
 
+import com.oce.base.bean.TDepartment;
 import com.oce.base.bean.TDepartmentDepartment;
 import com.oce.base.mapper.DoubleDepartmentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,32 +12,57 @@ import java.util.List;
 public class DoubleDepartmentService {
     @Autowired
     DoubleDepartmentMapper departmentMapper;
-    @Autowired
-    UserDepartmentService userDepartmentService;
 
 
-    public Integer selectDepartmentidFromDepartment(int i,int id){
-        List<Integer> integers = departmentMapper.selectListDepartment_id(id);
-        return integers.get(i);
-    }
-    //查询员工所在部门的子部门id
-    public int selectDepartmentidByid(int id){
-
-        return departmentMapper.selectChileByid( userDepartmentService.getDepartmentid(id));
-    }
-
-    public String insert(TDepartmentDepartment departmentDepartment){
-        departmentMapper.insert(departmentDepartment);
-        return "add ok";
+    public boolean insert(TDepartmentDepartment departmentDepartment){
+        boolean flag=false;
+        try{
+            departmentMapper.insert(departmentDepartment);
+            flag=true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
     }
 
     public List<TDepartmentDepartment> findAll(){
         return  departmentMapper.findAll();
-
     }
 
-    public String delete(Integer id){
-        departmentMapper.deleteByid(id);
-        return "delete ok";
+    public  List<TDepartment> selectChileDepartment(Integer f_id){
+        return departmentMapper.selectChileByid(f_id);
     }
+
+    public  List<TDepartment> selectAllDepartmentByid(Integer f_id){
+        return departmentMapper.selectAllDepartmentByid(f_id);
+    }
+    public  List<Integer> selectChileDepartmentidByid(Integer f_id){
+        return departmentMapper.selectChileidByid(f_id);
+    }
+    public  List<Integer> selectAllDepartmentidByid(Integer f_id){
+        return departmentMapper.selectAllDepartmentidByid(f_id);
+    }
+    public  Integer selectFatheridByid(Integer c_id){
+        return departmentMapper.selectFatherByid(c_id);
+    }
+    public  int selectTotaChilenumByid(Integer f_id){
+        return departmentMapper.selectTotaChilenumByid(f_id);
+    }
+    public  int selectTotalnumByFid(Integer f_id){
+        return departmentMapper.selectTotalnumByFid(f_id);
+    }
+
+
+    public boolean delete(Integer id){
+        boolean flag=false;
+        try{
+            departmentMapper.deleteByid(id);
+            flag=true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+
 }

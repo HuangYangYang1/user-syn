@@ -1,6 +1,7 @@
 package com.oce.base.controller;
 
 
+import com.github.pagehelper.PageHelper;
 import com.oce.base.bean.TDepartment;
 import com.oce.base.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,9 @@ public class DepartmentController {
 
     @RequestMapping(value = "/department/selectAll",method = RequestMethod.GET)
     public List<TDepartment> selectAllDepartment(){
-        return departmentService.findAll();
+        PageHelper.startPage(1,20);
+        List<TDepartment> list=departmentService.findAll();
+        return list;
     }
     @RequestMapping(value = "/department/selectByid/{id}",method = RequestMethod.GET)
     public TDepartment selectAllDepartment(@PathVariable("id")Integer id){

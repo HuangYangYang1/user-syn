@@ -11,18 +11,30 @@ import java.util.List;
 @Mapper
 public interface UserPostMapper {
 
-    //根据用户id查看用户信息
-    @Select("select * from t_user_post where id=#{id}")
-    public TUser selectStudentByid(@Param("id") int id);
+    //根据岗位id查看用户列表
+    @Select("select * from t_user_post up,t_user u where  up.post_id=#{id} and u.id=up.user_id")
+    List<TUser> selectStudentByid(@Param("id") int id);
+
+    //查询岗位下的用户数量
+    @Select("select count(*) from t_user_post where post_id=#{id}")
+    int selectUserNumByPid(@Param("id") int id);
+
+    //查询用户的岗位
+    @Select("select p.full_name from t_user_post up,t_post p where up.user_id=#{id} and p.id=up.post_id")
+    int selectPostByUserid(@Param("id") int id);
 
     //根据用户id删除用户
-    @Delete("delete from t_user_post where id=#{id}")
-    public int deleteByid(Integer id);
+    @Delete("delete from t_user_post where user_id=#{id}")
+    int deleteByUserid(Integer id);
+
+    //根据岗位id删除用户
+    @Delete("delete from t_user_post where post_id=#{id}")
+    boolean deleteByPostid(Integer id);
 
     //添加用户
     @Insert("insert into t_user_post values(#{id},#{user_id},#{post_id}" +
             ",CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)")
-    public int insertUserPost(TUserPost userPost);
+    boolean insertUserPost(TUserPost userPost);
 
 
     @Update("update t_user_post set sname=#{sname} where sno=#{sno}")

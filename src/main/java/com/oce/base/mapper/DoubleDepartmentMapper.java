@@ -1,5 +1,6 @@
 package com.oce.base.mapper;
 
+import com.oce.base.bean.TDepartment;
 import com.oce.base.bean.TDepartmentDepartment;
 import org.apache.ibatis.annotations.*;
 
@@ -10,26 +11,44 @@ import java.util.List;
 @Mapper
 public interface DoubleDepartmentMapper {
 
-    @Select("select * from t_department_department where id=#{id}")
-    public TDepartmentDepartment selectByid(@Param("id") int id);
 
-    @Select("select chile_department_id from t_department_department where is_sub=1 and father_department_id={id}")
-    public int selectChileByid(@Param("id") int id);
+    //根据部门id查询子部门id
+    @Select("select chile_department_id from t_department_department where is_sub=1 and father_department_id=#{id}")
+    List<Integer> selectChileidByid(@Param("id") int id);
 
-    @Select("select count(*) as '总数'from t_department_department where father_department_id ={id}")
-    int selectTotalnumByid(@Param("id") int id);
+    //根据部门id查询子部门信息
+    @Select("select * from t_department d,t_department_department dd where is_sub=1 and dd.father_department_id=#{id} and d.id=dd.chile_department_id")
+    List<TDepartment> selectChileByid(@Param("id") int id);
 
-    @Select("select chile_department_id from t_user_department where father_department_id={id}")
-    List<Integer> selectListDepartment_id(@Param("id") int id);
+    //查询部门下的所有部门id
+    @Select("select chile_department_id from t_department_department where father_department_id=#{id}")
+    List<Integer> selectAllDepartmentidByid(@Param("id") int id);
 
-    @Delete("delete from t_department_department where id=#{id}")
-    public int deleteByid(int id);
+    //根据部门id查询所有部门信息
+    @Select("select * from t_department d,t_department_department dd where dd.father_department_id=#{id} and d.id=dd.chile_department_id")
+    List<TDepartment> selectAllDepartmentByid(@Param("id") int id);
+
+    //根据部门id查询上级部门id
+    @Select("select father_department_id from t_department_department where is_sub=1 and chile_department_id=#{id}")
+    Integer selectFatherByid(@Param("id") int id);
+
+    //查询部门的子部门数量
+    @Select("select count(*) as '总数'from t_department_department where is_sub=1 and father_department_id =#{id}")
+    int selectTotaChilenumByid(@Param("id") int id);
+
+    //查询部门下所有部门数量
+    @Select("select count(*) as '总数'from t_department_department where father_department_id =#{id}")
+    int selectTotalnumByFid(@Param("id") int id);
+
+    //根据部门id删除部门
+    @Delete("delete from t_department_department where chile_department_id=#{id} and father_department_id=#{id}")
+    boolean deleteByid(int id);
 
 
 
     @Insert("insert into t_department_department values(#{id},#{chile_department_id},#{father_department_id}" +
             ",#{is_sub},CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)")
-    public int insert(TDepartmentDepartment department);
+    boolean insert(TDepartmentDepartment department);
 
 
 
