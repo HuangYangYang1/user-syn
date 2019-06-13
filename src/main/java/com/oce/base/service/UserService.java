@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 用户服务
+ */
 @Service
 public class UserService {
     @Autowired
@@ -15,9 +19,14 @@ public class UserService {
     @Autowired
     UserDepartmentService userDepartmentService;
 
-
-
+    /**
+     * @param: [user] 用户实体
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:19
+     */
     public boolean insertUser(TUser user){
+
         boolean flag=false;
         try{
             usermapper.insertUser(user);
@@ -27,27 +36,56 @@ public class UserService {
         }
         return flag;
     }
-    //查询部门下某个员工信息
-    public TUser selectUserByidFromDepart(int i,int id){
-        Integer integer = userDepartmentService.selectUseridFromDepartment(i,id);
-        return usermapper.selectStudentByid(integer);
-    }
 
-
+    /**
+     * @param:
+     * @return: List<TUser> 用户实体信息列表
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:19
+     */
     public List<TUser> findAll(){
+
         return  usermapper.findAll();
 
     }
+    /**
+     * @param: [id] 用户id
+     * @return: TUser  用户实体信息
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:20
+     */
     public  TUser selectUserByid(int id){
-        return usermapper.selectStudentByid(id);
+
+        return usermapper.selectUserByid(id);
     }
+    /**
+     * @param: [lastName] 用户姓名
+     * @return: TUser 用户实体信息
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:22
+     */
     public  TUser selectByname(String lastName){
+
         return usermapper.selectStudentByname(lastName);
     }
+    /**
+     * @param:
+     * @return: int 总用户数量
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:22
+     */
     public int selectTotalCount(){
-        return usermapper.selectTotalStudent();
+
+        return usermapper.selectTotalUser();
     }
+    /**
+     * @param: [id] 用户id
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:23
+     */
     public boolean deleteUserByid(Integer id){
+
         boolean flag=false;
         try{
             usermapper.deleteByid(id);
@@ -57,7 +95,12 @@ public class UserService {
         }
         return flag;
     }
-
+    /**
+     * @param: [name] 用户姓名
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:23
+     */
     public boolean deleteUserByname(String name){
         boolean flag=false;
         try{
@@ -68,7 +111,14 @@ public class UserService {
         }
         return flag;
     }
+    /**
+     * @param: [tUser] 用户实体信息
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:24
+     */
     public boolean addUser(TUser tUser){
+
         boolean flag=false;
         try{
             usermapper.insertUser(tUser);

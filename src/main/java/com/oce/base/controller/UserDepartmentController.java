@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 用户与部门关系控制器
+ */
 @RestController
 public class UserDepartmentController {
 

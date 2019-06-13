@@ -8,6 +8,11 @@ import java.util.List;
 
 
 //指定这是一个操作数据库的mapper
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 用户与岗位关系数据库映射
+ */
 @Mapper
 public interface UserPostMapper {
 
@@ -21,11 +26,11 @@ public interface UserPostMapper {
 
     //查询用户的岗位
     @Select("select p.full_name from t_user_post up,t_post p where up.user_id=#{id} and p.id=up.post_id")
-    int selectPostByUserid(@Param("id") int id);
+    String selectPostByUserid(@Param("id") int id);
 
     //根据用户id删除用户
     @Delete("delete from t_user_post where user_id=#{id}")
-    int deleteByUserid(Integer id);
+    boolean deleteByUserid(Integer id);
 
     //根据岗位id删除用户
     @Delete("delete from t_user_post where post_id=#{id}")

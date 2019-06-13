@@ -3,6 +3,7 @@ package com.oce.base.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.oce.base.bean.TPost;
+import com.oce.base.bean.TUserPost;
 import com.oce.base.service.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 岗位控制器
+ */
 @RestController
 public class PostController {
 
@@ -33,16 +39,33 @@ public class PostController {
     @Autowired
     UserManagerService userManagerService;
 
-
+    /**
+     * @param: [post] 岗位实体
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 17:53
+     */
     @RequestMapping(value = "/post/add",method = RequestMethod.POST)
     public boolean insertPost(TPost post){
+
        return postService.insertPost(post);
     }
-
+    /**
+     * @param: [id] 岗位id
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 17:54
+     */
     @RequestMapping(value = "/post/deleteByid/{id}",method = RequestMethod.DELETE)
     public boolean deletePostByid(@Param("id") Integer id){
         return postService.deletePostByid(id);
     }
+    /**
+     * @param: [short_name] 岗位简称
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 17:54
+     */
     @RequestMapping(value = "/post/deleteBySN/{short_name}",method = RequestMethod.DELETE)
     public boolean deletePostBySN(@Param("short_name") String short_name){
         return postService.deletePostBySN(short_name);
@@ -68,8 +91,30 @@ public class PostController {
         return postService.selectCount();
     }
 
+    @RequestMapping(value = "/userpost/add",method = RequestMethod.POST)
+    public boolean insertUserPost(TUserPost userPost){
+        return userPostService.insert(userPost);
+    }
+
+    @RequestMapping(value = "/userpost/selectUserNumByPid/{id}",method = RequestMethod.GET)
+    public int selectUserNumByPid(@Param("id")Integer id){
+        return userPostService.selectUserNumByPid(id);
+    }
+    @RequestMapping(value = "/userpost/selectPostByUserid/{id}",method = RequestMethod.GET)
+    public String selectPostByUserid(@Param("id")Integer id){
+        return userPostService.selectPostByUserid(id);
+    }
+    @RequestMapping(value = "/post/deleteByPostid/{id}",method = RequestMethod.DELETE)
+    public boolean deleteByPostid(@Param("id") Integer id){
+        return userPostService.deleteByPostid(id);
+    }
+    @RequestMapping(value = "/post/deleteByUserid/{id}",method = RequestMethod.DELETE)
+    public boolean deleteByUserid(@Param("id") Integer id){
+        return userPostService.deleteByUserid(id);
 
 
+
+    }
 
 //    @RequestMapping(value = "/user/insert")
 //    public List<TUser> insertUser(){

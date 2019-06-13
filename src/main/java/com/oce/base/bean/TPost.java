@@ -1,16 +1,41 @@
 package com.oce.base.bean;
 
 
+import java.sql.Date;
 import java.sql.Timestamp;
+
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 岗位实体
+ */
 
 public class TPost {
 
+  /**
+   *  岗位id
+   */
   private long id;
+  /**
+   *  简称
+   */
   private String short_name;
+  /**
+   *  全称
+   */
   private String full_name;
+  /**
+   *  备注
+   */
   private String remark;
-  private Timestamp create_time;
-  private Timestamp update_time;
+  /**
+   *  表创建日期
+   */
+  private Date create_time;
+  /**
+   *  表更新日期
+   */
+  private Date update_time;
 
 
   public long getId() {
@@ -45,19 +70,19 @@ public class TPost {
     this.remark = remark;
   }
 
-  public Timestamp getCreate_time() {
+  public Date getCreate_time() {
     return create_time;
   }
 
-  public void setCreate_time(Timestamp create_time) {
+  public void setCreate_time(Date create_time) {
     this.create_time = create_time;
   }
 
-  public Timestamp getUpdate_time() {
+  public Date getUpdate_time() {
     return update_time;
   }
 
-  public void setUpdate_time(Timestamp update_time) {
+  public void setUpdate_time(Date update_time) {
     this.update_time = update_time;
   }
 }

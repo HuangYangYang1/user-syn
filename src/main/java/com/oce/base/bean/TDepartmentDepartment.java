@@ -1,16 +1,39 @@
 package com.oce.base.bean;
 
 
+import java.sql.Date;
 import java.sql.Timestamp;
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 部门与部门关系表实体
+ */
 
 public class TDepartmentDepartment {
-
+  /**
+   *  列表id
+   */
   private long id;
+  /**
+   *  子部门id
+   */
   private long chile_department_id;
+  /**
+   *  上级部门id
+   */
   private long father_department_id;
+  /**
+   *  是否是子部门 1代表是0代表否
+   */
   private long is_sub;
-  private Timestamp create_time;
-  private Timestamp update_time;
+  /**
+   *  表创建时间
+   */
+  private Date create_time;
+  /**
+   *  表更新时间
+   */
+  private Date update_time;
 
   public long getId() {
     return id;
@@ -44,19 +67,19 @@ public class TDepartmentDepartment {
     this.is_sub = is_sub;
   }
 
-  public Timestamp getCreate_time() {
+  public Date getCreate_time() {
     return create_time;
   }
 
-  public void setCreate_time(Timestamp create_time) {
+  public void setCreate_time(Date create_time) {
     this.create_time = create_time;
   }
 
-  public Timestamp getUpdate_time() {
+  public Date getUpdate_time() {
     return update_time;
   }
 
-  public void setUpdate_time(Timestamp update_time) {
+  public void setUpdate_time(Date update_time) {
     this.update_time = update_time;
   }
 }

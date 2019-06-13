@@ -8,6 +8,11 @@ import java.util.List;
 
 
 //指定这是一个操作数据库的mapper
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 部门数据库映射
+ */
 @Mapper
 public interface DepartmentMapper {
 

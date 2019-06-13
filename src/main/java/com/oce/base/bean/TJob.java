@@ -1,13 +1,28 @@
 package com.oce.base.bean;
 
+import java.util.Date;
+
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 职务实体
+ */
 
 public class TJob {
-
+  /**
+   *  职务id
+   */
   private long id;
+  /**
+   *  简称
+   */
   private String shortName;
+  /**
+   *  全称
+   */
   private String fullName;
-  private java.sql.Timestamp createTime;
-  private java.sql.Timestamp updateTime;
+  private Date createTime;
+  private Date updateTime;
 
 
   public long getId() {
@@ -36,22 +51,19 @@ public class TJob {
     this.fullName = fullName;
   }
 
-
-  public java.sql.Timestamp getCreateTime() {
+  public Date getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(java.sql.Timestamp createTime) {
+  public void setCreateTime(Date createTime) {
     this.createTime = createTime;
   }
 
-
-  public java.sql.Timestamp getUpdateTime() {
+  public Date getUpdateTime() {
     return updateTime;
   }
 
-  public void setUpdateTime(java.sql.Timestamp updateTime) {
+  public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
-
 }

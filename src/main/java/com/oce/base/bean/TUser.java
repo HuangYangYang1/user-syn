@@ -4,28 +4,94 @@ package com.oce.base.bean;
 import java.sql.Timestamp;
 import java.util.Date;
 
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 用户实体
+ */
+
 public class TUser {
 
+  /**
+   *  用户id
+   */
   private long id;
+  /**
+   *  用户状态
+   */
   private long state;
+  /**
+   *  用户名
+   */
   private String name;
+  /**
+   *  登陆账号
+   */
   private String login_id;
+  /**
+   *  性别
+   */
   private long sex;
+  /**
+   *  办公电话
+   */
   private String telephone;
+  /**
+   *  移动电话
+   */
   private String mobile;
+  /**
+   *  邮箱
+   */
   private String email;
+  /**
+   *  系统语言 默认为 7
+   */
   private String system_language;
+  /**
+   *  生日
+   */
   private Date birthday;
+  /**
+   *  民族
+   */
   private String folk;
+  /**
+   *  籍贯
+   */
   private String native_place;
+  /**
+   *  户口地址
+   */
   private String regresident_place;
+  /**
+   *  身份证
+   */
   private String id_card;
+  /**
+   *  婚姻状况
+   */
   private String marital_status;
+  /**
+   *  居住地
+   */
   private String location_place;
+  /**
+   *  合同开始日期
+   */
   private Date start_date;
+  /**
+   *  合同结束日期
+   */
   private Date end_date;
-  private Timestamp create_time;
-  private Timestamp update_time;
+  /**
+   *  表创建日期
+   */
+  private Date create_time;
+  /**
+   *  表更新日期
+   */
+  private Date update_time;
 
 
   public long getId() {
@@ -172,19 +238,19 @@ public class TUser {
     this.end_date = end_date;
   }
 
-  public Timestamp getCreate_time() {
+  public Date getCreate_time() {
     return create_time;
   }
 
-  public void setCreate_time(Timestamp create_time) {
+  public void setCreate_time(Date create_time) {
     this.create_time = create_time;
   }
 
-  public Timestamp getUpdate_time() {
+  public Date getUpdate_time() {
     return update_time;
   }
 
-  public void setUpdate_time(Timestamp update_time) {
+  public void setUpdate_time(Date update_time) {
     this.update_time = update_time;
   }
 }

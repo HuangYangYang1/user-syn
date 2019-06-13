@@ -8,6 +8,11 @@ import java.util.List;
 
 
 //指定这是一个操作数据库的mapper
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 用户数据库映射
+ */
 @Mapper
 public interface UserMapper {
 
@@ -17,11 +22,11 @@ public interface UserMapper {
 
     //查询总人数
     @Select("select count(*) as '总数' from t_user;")
-    public int selectTotalStudent();
+    public int selectTotalUser();
 
     //根据用户id查看用户信息
     @Select("select * from t_user where id=#{id}")
-    public TUser selectStudentByid(@Param("id") int id);
+    public TUser selectUserByid(@Param("id") int id);
 
     //根据用户名查看用户信息
     @Select("select * from t_user where last_name=#{last_name}")

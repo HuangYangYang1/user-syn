@@ -1,15 +1,37 @@
 package com.oce.base.bean;
 
 
+import java.sql.Date;
 import java.sql.Timestamp;
+
+/**
+ * @Auther: Jiacheng.xu
+ * @Date: 2019/6/12 11:33
+ * @Description: 用户与部门关系实体
+ */
 
 public class TUserDepartment {
 
+  /**
+   *  列表id
+   */
   private long id;
+  /**
+   *  用户id
+   */
   private long user_id;
+  /**
+   *  部门id
+   */
   private long department_id;
-  private Timestamp create_time;
-  private Timestamp update_time;
+  /**
+   *  表创建时间
+   */
+  private Date create_time;
+  /**
+   * 表更新时间
+   */
+  private Date update_time;
 
 
   public long getId() {
@@ -36,21 +58,19 @@ public class TUserDepartment {
     this.department_id = department_id;
   }
 
-
-
-  public Timestamp getCreate_time() {
+  public Date getCreate_time() {
     return create_time;
   }
 
-  public void setCreate_time(Timestamp create_time) {
+  public void setCreate_time(Date create_time) {
     this.create_time = create_time;
   }
 
-  public Timestamp getUpdate_time() {
+  public Date getUpdate_time() {
     return update_time;
   }
 
-  public void setUpdate_time(Timestamp update_time) {
+  public void setUpdate_time(Date update_time) {
     this.update_time = update_time;
   }
 }
