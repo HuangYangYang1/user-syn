@@ -131,7 +131,7 @@ public class UserService {
     /**
      * 通过id更新用户的所有信息
      *
-     * @param []
+     * @param
      * @return void
      */
     public  void  updateAllInfoByid(TUser tUser){
@@ -142,7 +142,7 @@ public class UserService {
     /**
      * 通过id更新login_id、state（status状态）
      *
-     * @param [id, login_id, state]
+     * @param  login_id, state]
      * @return void
      */
     public void updateStatusById(long id, String login_id, long state) {

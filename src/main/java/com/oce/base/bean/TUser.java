@@ -232,19 +232,19 @@ public class TUser {
     this.end_date = end_date;
   }
 
-  public Timestamp getCreate_time() {
+  public Date getCreate_time() {
     return create_time;
   }
 
-  public void setCreate_time(Timestamp create_time) {
+  public void setCreate_time(Date create_time) {
     this.create_time = create_time;
   }
 
-  public Timestamp getUpdate_time() {
+  public Date getUpdate_time() {
     return update_time;
   }
 
-  public void setUpdate_time(Timestamp update_time) {
+  public void setUpdate_time(Date update_time) {
     this.update_time = update_time;
   }
 }

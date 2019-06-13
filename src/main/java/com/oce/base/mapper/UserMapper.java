@@ -26,7 +26,7 @@ public interface UserMapper {
 
     //根据用户id查看用户信息
     @Select("select * from t_user where id=#{id}")
-    public TUser selectUserByid(@Param("id") int id);
+    public TUser selectUserByid(@Param("id") Long id);
 
     //根据用户名查看用户信息
     @Select("select * from t_user where last_name=#{last_name}")
