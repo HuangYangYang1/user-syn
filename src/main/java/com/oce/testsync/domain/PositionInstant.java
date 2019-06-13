@@ -1,20 +1,26 @@
 package com.oce.testsync.domain;
+
 /**
- *  岗位bean
+ *  用于处理即时触发的岗位bean
  *
  * @author yang.huang
- * @since 2019/6/12 11:49
+ * @since 2019/6/13 13:52
  */
-public class JobTitleBean {
+public class PositionInstant {
     /**
-     * 操作动作标识
+     * 操作类型
      */
     private String action;
     /**
+     * 无用code
+     */
+    private String code;
+    /**
      * 岗位id
      */
-    private  String jobtitleid;
-    /** 需要确认同以下的fullname是否全部相同
+    private String jobtitleid;
+
+    /**
      * 简称
      */
     private String shortname;
@@ -23,47 +29,32 @@ public class JobTitleBean {
      */
     private String fullname;
     /**
-     * 所属部门id
-     * null，建议delete
+     * 部门id
      */
     private String departmentid;
     /**
-     * 岗位职责
-     * null，建议delete
+     *无用code
      */
-    private String jobresponsibility;
+    private String departmentcode;
     /**
-     * 任职资格
-     * null，建议delete
-     */
-    private String jobcompetency;
-    /**
-     * 相关文档
-     * null，建议delete
-     */
-    private String jobdoc;
-    /**
-     * 备注
-     * null，建议delete
+     * 岗位备注
      */
     private String jobtitleremark;
-    /*
-    * 最近修改的时间
-    * 值为两位数字,delete
-    * */
+    /**
+     * 最近修改时间
+     */
     private String lastChangdate;
 
     @Override
     public String toString() {
-        return "JobTitleBean{" +
+        return "Position{" +
                 "action='" + action + '\'' +
+                ", code='" + code + '\'' +
                 ", jobtitleid='" + jobtitleid + '\'' +
                 ", shortname='" + shortname + '\'' +
                 ", fullname='" + fullname + '\'' +
                 ", departmentid='" + departmentid + '\'' +
-                ", jobresponsibility='" + jobresponsibility + '\'' +
-                ", jobcompetency='" + jobcompetency + '\'' +
-                ", jobdoc='" + jobdoc + '\'' +
+                ", departmentcode='" + departmentcode + '\'' +
                 ", jobtitleremark='" + jobtitleremark + '\'' +
                 ", lastChangdate='" + lastChangdate + '\'' +
                 '}';
@@ -77,12 +68,12 @@ public class JobTitleBean {
         this.action = action;
     }
 
-    public String getLastChangdate() {
-        return lastChangdate;
+    public String getCode() {
+        return code;
     }
 
-    public void setLastChangdate(String lastChangdate) {
-        this.lastChangdate = lastChangdate;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getJobtitleid() {
@@ -117,28 +108,12 @@ public class JobTitleBean {
         this.departmentid = departmentid;
     }
 
-    public String getJobresponsibility() {
-        return jobresponsibility;
+    public String getDepartmentcode() {
+        return departmentcode;
     }
 
-    public void setJobresponsibility(String jobresponsibility) {
-        this.jobresponsibility = jobresponsibility;
-    }
-
-    public String getJobcompetency() {
-        return jobcompetency;
-    }
-
-    public void setJobcompetency(String jobcompetency) {
-        this.jobcompetency = jobcompetency;
-    }
-
-    public String getJobdoc() {
-        return jobdoc;
-    }
-
-    public void setJobdoc(String jobdoc) {
-        this.jobdoc = jobdoc;
+    public void setDepartmentcode(String departmentcode) {
+        this.departmentcode = departmentcode;
     }
 
     public String getJobtitleremark() {
@@ -147,5 +122,13 @@ public class JobTitleBean {
 
     public void setJobtitleremark(String jobtitleremark) {
         this.jobtitleremark = jobtitleremark;
+    }
+
+    public String getLastChangdate() {
+        return lastChangdate;
+    }
+
+    public void setLastChangdate(String lastChangdate) {
+        this.lastChangdate = lastChangdate;
     }
 }

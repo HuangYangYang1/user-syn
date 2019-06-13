@@ -135,4 +135,17 @@ public class PostService {
 
        return postMapper.selectTotal();
     }
+
+    /**
+     * 通过id更新TPost的所有数据
+     *
+     * @param []
+     * @return void
+     */
+    public int  updateAllInfoById(TPost tPost){
+        return postMapper.updateAllInfoById(tPost);
+    }
+
+
+
 }

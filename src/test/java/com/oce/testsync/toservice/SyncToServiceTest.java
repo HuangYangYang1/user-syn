@@ -1,27 +1,19 @@
+/*
 package com.oce.testsync.toservice;
 
 import com.oce.testsync.client.WsClient;
-import com.oce.testsync.domain.DepartmentBean;
-import com.oce.testsync.domain.DeptRelation;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.swing.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
-
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class SyncToServiceTest {
 
     @Autowired
-    SyncToService syncToService;
+    SyncAllService syncToService;
     @Autowired
     WsClient wsClient;
 
@@ -44,4 +36,4 @@ public class SyncToServiceTest {
         syncToService.getPositionInfo();
 
     }
-}
+}*/

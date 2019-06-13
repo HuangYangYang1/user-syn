@@ -13,17 +13,33 @@ import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * ws客户端使用类 ，用于获取数据并处理成List<Bean>后返回
+ *
+ * @author yang.huang
+ * @since 2019/6/12 11:32
+ */
 public class WsClient extends WebServiceGatewaySupport {
-//    private static final String uri = "http://10.0.10.227/services/HrmService";
+    /**
+     * 调用接口IP参数
+     */
     private static final String IP = "10.0.50.179";
+    /**
+     * Logger
+     */
     private static final Logger logger = LoggerFactory.getLogger(WsClient.class);
-//   xml转bean，bean转xml
+    /**
+     * xmlMapper处理
+     */
     private static XmlMapper xmlMapper = new XmlMapper();
 
-    /* 对接获取全部用户信息的接口
-    * 获取信息并返回list
+   /** 
+    * 对接获取全部用户信息的接口
+    *
+    * @param [] 
+    * @return java.util.List<com.oce.testsync.domain.UserBean> 用户list列表
     */
-    public List<UserBean> getHrmUserInfoXMLResponse(){
+    public List<UserBean> getHrmUserInfoXMLResponse() {
         GetHrmUserInfoXML request = new GetHrmUserInfoXML();
         request.setIn0(IP);
         GetHrmUserInfoXMLResponse res = (GetHrmUserInfoXMLResponse) getWebServiceTemplate().marshalSendAndReceive(request);
@@ -38,18 +54,21 @@ public class WsClient extends WebServiceGatewaySupport {
         return userBeanList;
     }
 
-    /* 获取全部部门的信息
-    * 返回部门的list集合
-    */
-    public List<DepartmentBean> getHrmDepartmentInfoXMLResponse(){
+    /**
+     * 获取全部部门的信息
+     *
+     * @param []
+     * @return java.util.List<com.oce.testsync.domain.DepartmentBean>  部门列表
+     */
+    public List<DepartmentBean> getHrmDepartmentInfoXMLResponse() {
         GetHrmDepartmentInfoXML req = new GetHrmDepartmentInfoXML();
         req.setIn0(IP);
-        GetHrmDepartmentInfoXMLResponse res = (GetHrmDepartmentInfoXMLResponse)getWebServiceTemplate().marshalSendAndReceive(req);
+        GetHrmDepartmentInfoXMLResponse res = (GetHrmDepartmentInfoXMLResponse) getWebServiceTemplate().marshalSendAndReceive(req);
         String resxml = res.getOut();
 
         List<DepartmentBean> departmentBeans = null;
         try {
-            departmentBeans = xmlMapper.readValue(resxml,DepartmentBeanList.class).getDepartmentBeans();
+            departmentBeans = xmlMapper.readValue(resxml, DepartmentBeanList.class).getDepartmentBeans();
             logger.info("departmentBeans:" + departmentBeans);
             return departmentBeans;
         } catch (IOException e) {
@@ -58,10 +77,13 @@ public class WsClient extends WebServiceGatewaySupport {
         return departmentBeans;
     }
 
-    /* 获取全部岗位的信息
-    * 返回岗位信息的集合
-    */
-    public List<JobTitleBean> getHrmJobTitleInfoXMLRespose(){
+    /**
+     * 获取全部岗位的信息
+     *
+     * @param []
+     * @return java.util.List<com.oce.testsync.domain.JobTitleBean> 岗位列表
+     */
+    public List<JobTitleBean> getHrmJobTitleInfoXMLRespose() {
         GetHrmJobTitleInfoXML req = new GetHrmJobTitleInfoXML();
         req.setIn0(IP);
         GetHrmJobTitleInfoXMLResponse res = (GetHrmJobTitleInfoXMLResponse) getWebServiceTemplate().marshalSendAndReceive(req);
@@ -74,8 +96,6 @@ public class WsClient extends WebServiceGatewaySupport {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
         return jobTitleBeans;
     }
 }

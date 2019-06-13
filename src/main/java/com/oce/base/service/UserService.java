@@ -54,7 +54,7 @@ public class UserService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:20
      */
-    public  TUser selectUserByid(int id){
+    public  TUser selectUserByid(Long id){
 
         return usermapper.selectUserByid(id);
     }
@@ -127,5 +127,25 @@ public class UserService {
             e.printStackTrace();
         }
         return flag;
+    }
+    /**
+     * 通过id更新用户的所有信息
+     *
+     * @param []
+     * @return void
+     */
+    public  void  updateAllInfoByid(TUser tUser){
+
+        usermapper.updateAllInfoByid(tUser);
+    }
+
+    /**
+     * 通过id更新login_id、state（status状态）
+     *
+     * @param [id, login_id, state]
+     * @return void
+     */
+    public void updateStatusById(long id, String login_id, long state) {
+        usermapper.updateStatusById(id,login_id,state);
     }
 }

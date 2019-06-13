@@ -4,12 +4,6 @@ package com.oce.base.bean;
 import java.sql.Timestamp;
 import java.util.Date;
 
-/**
- * @Auther: Jiacheng.xu
- * @Date: 2019/6/12 11:33
- * @Description: 用户实体
- */
-
 public class TUser {
 
   /**
@@ -23,7 +17,7 @@ public class TUser {
   /**
    *  用户名
    */
-  private String name;
+  private String last_name;
   /**
    *  登陆账号
    */
@@ -93,6 +87,13 @@ public class TUser {
    */
   private Date update_time;
 
+  public String getLast_name() {
+    return last_name;
+  }
+
+  public void setLast_name(String last_name) {
+    this.last_name = last_name;
+  }
 
   public long getId() {
     return id;
@@ -110,13 +111,6 @@ public class TUser {
     this.state = state;
   }
 
-  public String getLast_name() {
-    return name;
-  }
-
-  public void setLast_name(String name) {
-    this.name = name;
-  }
 
   public String getLogin_id() {
     return login_id;
@@ -238,19 +232,19 @@ public class TUser {
     this.end_date = end_date;
   }
 
-  public Date getCreate_time() {
+  public Timestamp getCreate_time() {
     return create_time;
   }
 
-  public void setCreate_time(Date create_time) {
+  public void setCreate_time(Timestamp create_time) {
     this.create_time = create_time;
   }
 
-  public Date getUpdate_time() {
+  public Timestamp getUpdate_time() {
     return update_time;
   }
 
-  public void setUpdate_time(Date update_time) {
+  public void setUpdate_time(Timestamp update_time) {
     this.update_time = update_time;
   }
 }

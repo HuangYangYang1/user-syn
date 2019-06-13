@@ -48,6 +48,14 @@ public interface PostMapper {
     @Update("update t_post set sname=#{sname} where sno=#{sno}")
     int update(String sname, String sno);
 
-
+    /**
+     * Mapper通过id更新TPost的所有数据
+     *
+     * @param [tPost]
+     * @return int
+     */
+    @Update("update t_post set short_name = #{short_name},full_name=#{full_name},remark=#{remark}" +
+            "where id = #{id}")
+    int updateAllInfoById(TPost tPost);
 
 }

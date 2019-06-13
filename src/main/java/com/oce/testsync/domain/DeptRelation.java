@@ -1,15 +1,32 @@
 package com.oce.testsync.domain;
 
-/*
-* 部门关系，
-* 二叉树关系结构
-* */
-public class DeptRelation {
 
+/**
+ *  部门关系bean
+ *
+ * @author yang.huang
+ * @since 2019/6/12 11:44
+ */
+public class DeptRelation {
+    /**
+     * 子部门的id
+     */
     private String child;
+    /**
+     * 父部门的id
+     */
     private String parent;
+    /**
+     * 是否是直系，1为直系
+     */
     private int is_sub;
 
+    /**
+     * 构造方法
+     *
+     * @param [child, parent, is_sub]
+     * @return
+     */
     public DeptRelation(String child, String parent,int is_sub) {
         this.child = child;
         this.parent = parent;
