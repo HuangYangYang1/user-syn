@@ -43,6 +43,7 @@ public interface DepartmentMapper {
     @Update("update t_department set sname=#{sname} where sno=#{sno}")
     int update(String sname, String sno);
 
-
-
+    @Update("update t_department set full_name = #{full_name},short_name = #{short_name}," +
+            "show_order = #{show_order},canceled = #{canceled} where id = #{id}")
+    int updateAllInfoById(TDepartment tDepartment);
 }

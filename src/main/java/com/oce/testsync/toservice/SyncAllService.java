@@ -13,15 +13,16 @@ import org.springframework.stereotype.Component;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-/*
-* 同步到数据库的操作service类
-*
-* */
+/**
+ * 同步到数据库的操作service类
+ *
+ * @author yang.huang
+ * @since 2019/6/12 12:00
+ */
 @Component
-public class SyncToService {
+public class SyncAllService {
     @Autowired
     WsClient wsClient;
     @Autowired
@@ -38,7 +39,12 @@ public class SyncToService {
     PostService postService;
     @Autowired
     UserManagerService userManagerService;
-    //    获取岗位的信息,并同步进入数据库
+    /**
+     * 获取岗位信息调用Service存入数据库
+     *
+     * @param []
+     * @return void
+     */
     public void getPositionInfo() {
         List<JobTitleBean> jobTitleBeans = wsClient.getHrmJobTitleInfoXMLRespose();
         for (JobTitleBean jobTitleBean : jobTitleBeans) {
@@ -50,7 +56,12 @@ public class SyncToService {
             postService.insertPost(tPost);
         }
     }
-    //   获取部门的信息
+    /**
+     *  获取部门的信息调用Service存入数据库
+     *
+     * @param []
+     * @return void
+     */
     public void getDepartmentInfo() {
         List<DepartmentBean> departmentBeans = wsClient.getHrmDepartmentInfoXMLResponse();
         for (DepartmentBean departmentBean : departmentBeans) {
@@ -67,7 +78,12 @@ public class SyncToService {
         }
     }
 
-    //    获取用户信息并处理t_user_department、t_user_manager、t_user_post关系表
+    /**
+     * 获取用户信息并处理t_user_department、t_user_manager、t_user_post关系表调用对应service存入数据库
+     *
+     * @param []
+     * @return void
+     */
     public void getUserInfo() {
         List<UserBean> userBeans = wsClient.getHrmUserInfoXMLResponse();
         for (UserBean userBean : userBeans) {
@@ -128,14 +144,16 @@ public class SyncToService {
             tUser.setState(Long.parseLong(userBean.getStatus()));
             tUser.setSystem_language(userBean.getSystemlanguage());
             tUser.setTelephone(userBean.getTelephone());
-
             userService.insertUser(tUser);
-
         }
-
     }
 
-    //    获取全部部门的关系信息并存入List<DeptRelation>
+    /**
+     * 获取部门的关系信息并调用service存入数据库
+     *
+     * @param []
+     * @return void
+     */
     public void getDepartmentRelation() {
         List<DepartmentBean> departmentBeans = wsClient.getHrmDepartmentInfoXMLResponse();
         List<DeptRelation> result = new ArrayList<>();
@@ -155,18 +173,15 @@ public class SyncToService {
             System.out.println(deptRelation);
         }
     }
-    //    获取部门之间关系的递归方法
+    /**
+     * 获取部门之间关系的递归方法
+     *
+     * @param [departmentid, supdepartmentid, departmentBeans, result]
+     * @return void
+     */
     public void getDepartmentRelation(String departmentid, String supdepartmentid, List<DepartmentBean> departmentBeans, List<DeptRelation> result) {
 
         for (DepartmentBean departmentBean : departmentBeans) {
-//            if (departmentBean.getDepartmentid().equals(supdepartmentid)) {
-//                if (departmentid.equals(departmentBean.getDepartmentid())) {
-//                    result.add(new DeptRelation(departmentid, departmentBean.getSupdepartmentid(), 1));
-//                }else{
-//                    result.add(new DeptRelation(departmentid, departmentBean.getSupdepartmentid(), 0));
-//                }
-//                getDepartmentRelation(departmentid, departmentBean.getSupdepartmentid(), departmentBeans, result);
-//            }
             if (departmentBean.getDepartmentid().equals(supdepartmentid)) {
                 if (departmentid.equals(supdepartmentid)) {
 //                   如果是直属子类则设is_sub为1

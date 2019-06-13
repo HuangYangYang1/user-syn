@@ -21,7 +21,7 @@ public interface UserMapper {
 
     //根据用户id查看用户信息
     @Select("select * from t_user where id=#{id}")
-    public TUser selectStudentByid(@Param("id") int id);
+    public TUser selectStudentByid(@Param("id") Long id);
 
     //根据用户名查看用户信息
     @Select("select * from t_user where last_name=#{last_name}")
@@ -47,5 +47,23 @@ public interface UserMapper {
     @Update("update t_user set sname=#{sname} where sno=#{sno}")
     boolean update(String sname, String sno);
 
-
+    /**
+     * 通过id更新全部信息
+     *
+     * @param []
+     * @return void
+     */
+    @Update("update t_user set state = #{state},last_name = #{last_name},login_id = #{login_id},sex = #{sex}," +
+            "telephone = #{telephone},mobile = #{mobile},email = #{email},system_language = #{system_language}," +
+            "birthday = #{birthday},id_card = #{id_card},location_place = #{location_place},start_date = #{start_date}," +
+            "end_date = #{end_date} where id = #{id}")
+    void updateAllInfoByid(TUser tUser);
+    /**
+     * mapper/ 通过id更新state（status）
+     *
+     * @param [id, login_id, state]
+     * @return void
+     */
+    @Update("update t_user set login_id = #{login_id},state = #{state} where id = #{id}")
+    void updateStatusById(@Param("id") long id, @Param("login_id") String login_id, @Param("state") long state);
 }

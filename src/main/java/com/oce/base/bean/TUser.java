@@ -8,7 +8,7 @@ public class TUser {
 
   private long id;
   private long state;
-  private String name;
+  private String last_name;
   private String login_id;
   private long sex;
   private String telephone;
@@ -27,6 +27,13 @@ public class TUser {
   private Timestamp create_time;
   private Timestamp update_time;
 
+  public String getLast_name() {
+    return last_name;
+  }
+
+  public void setLast_name(String last_name) {
+    this.last_name = last_name;
+  }
 
   public long getId() {
     return id;
@@ -44,13 +51,6 @@ public class TUser {
     this.state = state;
   }
 
-  public String getLast_name() {
-    return name;
-  }
-
-  public void setLast_name(String name) {
-    this.name = name;
-  }
 
   public String getLogin_id() {
     return login_id;

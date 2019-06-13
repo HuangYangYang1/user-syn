@@ -25,7 +25,7 @@ public class UserController {
         return userService.findAll();
     }
     @RequestMapping(value = "/user/queryByid/{id}",method = RequestMethod.GET)
-    public TUser queryByid(@PathVariable("id") int id){
+    public TUser queryByid(@PathVariable("id") long id){
         return userService.selectUserByid(id);
     }
     @RequestMapping(value = "/user/queryByname/{lastName}",method = RequestMethod.GET)

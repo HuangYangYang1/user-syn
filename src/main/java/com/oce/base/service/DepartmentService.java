@@ -89,4 +89,15 @@ public class DepartmentService {
 
     }
 
+    /**
+     * 通过id更新所有的信息
+     *
+     * @param []
+     * @return void
+     */
+    public void updateAllInfoById(TDepartment tDepartment){
+        departmentMapper.updateAllInfoById(tDepartment);
+
+    }
+
 }

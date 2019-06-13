@@ -5,11 +5,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-/*
-* ws客户端的配置类
-* */
+/**
+ *ws客户端的配置类
+ *
+ * @author yang.huang
+ * @since 2019/6/12 11:38
+ */
 @Configuration
 public class WSConfig {
+
+
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();

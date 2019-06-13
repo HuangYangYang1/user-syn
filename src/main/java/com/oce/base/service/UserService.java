@@ -29,7 +29,7 @@ public class UserService {
     }
     //查询部门下某个员工信息
     public TUser selectUserByidFromDepart(int i,int id){
-        Integer integer = userDepartmentService.selectUseridFromDepartment(i,id);
+        long integer = userDepartmentService.selectUseridFromDepartment(i,id);
         return usermapper.selectStudentByid(integer);
     }
 
@@ -38,7 +38,7 @@ public class UserService {
         return  usermapper.findAll();
 
     }
-    public  TUser selectUserByid(int id){
+    public  TUser selectUserByid(Long id){
         return usermapper.selectStudentByid(id);
     }
     public  TUser selectByname(String lastName){
@@ -77,5 +77,25 @@ public class UserService {
             e.printStackTrace();
         }
         return flag;
+    }
+    /**
+     * 通过id更新用户的所有信息
+     *
+     * @param []
+     * @return void
+     */
+    public  void  updateAllInfoByid(TUser tUser){
+
+        usermapper.updateAllInfoByid(tUser);
+    }
+
+    /**
+     * 通过id更新login_id、state（status状态）
+     *
+     * @param [id, login_id, state]
+     * @return void
+     */
+    public void updateStatusById(long id, String login_id, long state) {
+        usermapper.updateStatusById(id,login_id,state);
     }
 }

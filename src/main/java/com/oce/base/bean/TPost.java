@@ -12,6 +12,17 @@ public class TPost {
   private Timestamp create_time;
   private Timestamp update_time;
 
+  @Override
+  public String toString() {
+    return "TPost{" +
+            "id=" + id +
+            ", short_name='" + short_name + '\'' +
+            ", full_name='" + full_name + '\'' +
+            ", remark='" + remark + '\'' +
+            ", create_time=" + create_time +
+            ", update_time=" + update_time +
+            '}';
+  }
 
   public long getId() {
     return id;

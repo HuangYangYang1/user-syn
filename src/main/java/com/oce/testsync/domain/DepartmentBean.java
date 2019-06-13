@@ -1,18 +1,37 @@
 package com.oce.testsync.domain;
 
+/**
+ * 部门bean
+ *
+ * @author yang.huang
+ * @since 2019/6/12 11:39
+ */
 public class DepartmentBean {
+    /**
+     * 部门id
+     */
+    private java.lang.String departmentid;
 
-    private java.lang.String departmentid;// 部门id
-
-    private java.lang.String shortname;//简称
-
-    private java.lang.String fullname;//全称
-
-    private java.lang.String subcompanyid;//所属分部id
-
-    private java.lang.String supdepartmentid;//上级部门id
-
-    private java.lang.String showorder;//显示顺序
+    /**
+     * 简称
+     */
+    private java.lang.String shortname;
+    /**
+     * 全称
+     */
+    private java.lang.String fullname;
+    /**
+     * 所属分部id
+     */
+    private java.lang.String subcompanyid;
+    /**
+     * 上级部门id
+     */
+    private java.lang.String supdepartmentid;
+    /**
+     * 显示顺序
+     */
+    private java.lang.String showorder;
 
     /**
      * 部门编码
