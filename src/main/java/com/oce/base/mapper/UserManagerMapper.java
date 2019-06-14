@@ -18,11 +18,11 @@ public interface UserManagerMapper {
 
     //根据用户id查看用户信息
     @Select("select * from t_user_manager where id=#{id}")
-    public TUser selectByid(@Param("id") int id);
+    public TUser selectByid(@Param("id") Long id);
 
     //根据用户id删除关系
     @Delete("delete from t_user_manager where id=#{id}")
-    public int deleteByid(Integer id);
+    public int deleteByid(Long id);
 
     //添加信息
     @Insert("insert into t_user_manager values(#{id},#{user_id},#{manager_id}" +

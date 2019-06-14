@@ -84,7 +84,7 @@ public class UserService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:23
      */
-    public boolean deleteUserByid(Integer id){
+    public boolean deleteUserByid(Long id){
 
         boolean flag=false;
         try{

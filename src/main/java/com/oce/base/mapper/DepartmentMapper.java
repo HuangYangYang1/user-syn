@@ -17,7 +17,7 @@ import java.util.List;
 public interface DepartmentMapper {
 
     @Select("select * from t_department where id=#{id}")
-    TDepartment selectDepartmentByid(@Param("id") int id);
+    TDepartment selectDepartmentByid(@Param("id") Long id);
 
     @Select("select * from t_department where short_name=#{short_name}")
      TDepartment selectDepartmentByShortname(@Param("short_name") String short_name);
@@ -32,7 +32,7 @@ public interface DepartmentMapper {
     List<TDepartment> findAll();
 
     @Delete("delete from t_department where id=#{id}")
-     boolean deleteByid(@Param("id") int id);
+     boolean deleteByid(@Param("id") Long id);
 
     @Delete("delete from t_department where short_name=#{short_name}")
      boolean deleteBySN(@Param("short_name") String short_name);

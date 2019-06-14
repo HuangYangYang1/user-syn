@@ -41,7 +41,7 @@ public class PostService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:54
      */
-    public boolean deletePostByid(Integer id){
+    public boolean deletePostByid(Long id){
 
         boolean flag=false;
         try{
@@ -102,7 +102,7 @@ public class PostService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:56
      */
-    public TPost selectByid(Integer id){
+    public TPost selectByid(Long id){
 
         return postMapper.selectPostByid(id);
     }

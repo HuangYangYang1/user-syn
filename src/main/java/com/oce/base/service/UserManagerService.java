@@ -28,7 +28,7 @@ public class UserManagerService {
 
     }
 
-    public String deleteUser(Integer id){
+    public String deleteUser(Long id){
         userManagerMapper.deleteByid(id);
         return "delete ok";
     }

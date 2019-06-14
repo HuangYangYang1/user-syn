@@ -19,7 +19,7 @@ public interface PostMapper {
     List<TPost> findAll();
 
     @Select("select * from t_post where id=#{id}")
-    TPost selectPostByid(@Param("id") Integer id);
+    TPost selectPostByid(@Param("id") Long id);
 
     @Select("select * from t_post where short_name=#{short_name}")
     TPost selectPostBySN(@Param("short_name") String short_name);
@@ -31,7 +31,7 @@ public interface PostMapper {
     int selectTotal();
 
     @Delete("delete from t_post where id=#{id}")
-    boolean deleteByid(@Param("id") int id);
+    boolean deleteByid(@Param("id") Long id);
 
     @Delete("delete from t_post where short_name=#{short_name}")
     boolean deleteBySN(@Param("short_name") String short_name);

@@ -63,7 +63,7 @@ public class DepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:01
      */
-    public TDepartment selectByid(Integer id){
+    public TDepartment selectByid(Long id){
        return departmentMapper.selectDepartmentByid(id);
     }
     /**
@@ -93,7 +93,7 @@ public class DepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:06
      */
-    public boolean deleteDepartmentByid(Integer id){
+    public boolean deleteDepartmentByid(Long id){
 
         boolean flag=false;
         try{

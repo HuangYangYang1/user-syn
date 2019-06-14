@@ -41,7 +41,7 @@ public class UserJobService {
 
     }
 
-    public String deleteUser(Integer id){
+    public String deleteUser(Long id){
         userJobMapper.deleteByid(id);
         return "delete ok";
     }

@@ -18,11 +18,11 @@ public interface UserJobMapper {
 
     //根据用户id查看用户信息
     @Select("select * from t_user_job where id=#{id}")
-    public TUser selectStudentByid(@Param("id") int id);
+    public TUser selectStudentByid(@Param("id") Long id);
 
     //根据用户id删除用户
     @Delete("delete from t_user_job where id=#{id}")
-    public int deleteByid(Integer id);
+    public int deleteByid(Long id);
 
     //添加用户
     @Insert("insert into t_user_job values(#{id},#{user_id},#{job_id}" +

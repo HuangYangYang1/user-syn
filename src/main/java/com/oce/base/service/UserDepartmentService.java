@@ -26,7 +26,7 @@ public class UserDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:57
      */
-    public TDepartment selectDepartment(int id){
+    public TDepartment selectDepartment(Long id){
 
         return userDepartmentMapper.selectDepartment(id);
     }
@@ -36,7 +36,7 @@ public class UserDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:59
      */
-    public List<Integer> selectListUserid(Integer departmentid){
+    public List<Integer> selectListUserid(Long departmentid){
 
         return userDepartmentMapper.selectListUserid(departmentid);
     }
@@ -46,7 +46,7 @@ public class UserDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:00
      */
-    public int selectTotalUser(Integer departmentid){
+    public int selectTotalUser(Long departmentid){
 
         return userDepartmentMapper.selectUserNumByDepartmentid(departmentid);
     }
@@ -56,7 +56,7 @@ public class UserDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:02
      */
-    public List<TUser> selectListUser(int id){
+    public List<TUser> selectListUser(Long id){
 
         return userDepartmentMapper.selectListUser(id);
     }
@@ -94,7 +94,7 @@ public class UserDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:05
      */
-    public boolean deleteByUserid(Integer id){
+    public boolean deleteByUserid(Long id){
 
         boolean flag=false;
         try{
@@ -112,7 +112,7 @@ public class UserDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:05
      */
-    public boolean deleteByDepartmentid(Integer id){
+    public boolean deleteByDepartmentid(Long id){
         boolean flag=false;
         try{
             userDepartmentMapper.deleteByDepartmentid(id);
@@ -129,7 +129,7 @@ public class UserDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:05
      */
-    public boolean deleteByDepartmentidUserid(Integer d_id,Integer u_id){
+    public boolean deleteByDepartmentidUserid(Long d_id,Long u_id){
 
         boolean flag=false;
         try{

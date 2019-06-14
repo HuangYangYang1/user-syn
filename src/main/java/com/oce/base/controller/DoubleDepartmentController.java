@@ -31,7 +31,7 @@ public class DoubleDepartmentController {
      * @date: 2019/6/12 17:30
      */
     @RequestMapping(value = "/doubledepartment/selectChileDepartment/{id}",method= RequestMethod.GET)
-    public List<TDepartment> selectChileDepartmentByFid(@Param("id") Integer id){
+    public List<TDepartment> selectChileDepartmentByFid(@Param("id") Long id){
         return doubleDepartmentService.selectChileDepartment(id);
     }
     /**
@@ -41,7 +41,7 @@ public class DoubleDepartmentController {
      * @date: 2019/6/12 17:37
      */
     @RequestMapping(value = "/doubledepartment/selectAllDepartmentByFid/{id}",method= RequestMethod.GET)
-    public List<TDepartment> selectAllDepartmentByFid(@Param("id") Integer id){
+    public List<TDepartment> selectAllDepartmentByFid(@Param("id") Long id){
         return doubleDepartmentService.selectAllDepartmentByid(id);
     }
     /**
@@ -51,7 +51,7 @@ public class DoubleDepartmentController {
      * @date: 2019/6/12 17:39
      */
     @RequestMapping(value = "/doubledepartment/selectChileDepartmentidByFid/{id}",method= RequestMethod.GET)
-    public List<Integer> selectChileDepartmentidByFid(@Param("id") Integer id){
+    public List<Integer> selectChileDepartmentidByFid(@Param("id") Long id){
         return doubleDepartmentService.selectChileDepartmentidByid(id);
     }
     /**
@@ -62,7 +62,7 @@ public class DoubleDepartmentController {
      */
     //查询部门下的所有部门id
     @RequestMapping(value = "/doubledepartment/selectAllDepartmentidByFid/{id}",method= RequestMethod.GET)
-    public List<Integer> selectAllDepartmentidByFid(@Param("id") Integer id){
+    public List<Integer> selectAllDepartmentidByFid(@Param("id") Long id){
         return doubleDepartmentService.selectAllDepartmentidByid(id);
     }
     /**
@@ -73,7 +73,7 @@ public class DoubleDepartmentController {
      */
     //查询部门的子部门数量
     @RequestMapping(value = "/doubledepartment/selectTotaChilenumByFid/{id}",method= RequestMethod.GET)
-    public Integer selectTotaChilenumByFid(@Param("id") Integer id){
+    public Integer selectTotaChilenumByFid(@Param("id") Long id){
         return doubleDepartmentService.selectTotaChilenumByid(id);
     }
     /**
@@ -84,7 +84,7 @@ public class DoubleDepartmentController {
      */
     //根据部门id查询上级部门id
     @RequestMapping(value = "/doubledepartment/selectFatheridByCid/{id}",method= RequestMethod.GET)
-    public Integer selectFatheridByCid(@Param("id") Integer id){
+    public Integer selectFatheridByCid(@Param("id") Long id){
         return doubleDepartmentService.selectFatheridByid(id);
     }
     /**
@@ -95,7 +95,7 @@ public class DoubleDepartmentController {
      */
     //查询部门下所有部门数量
     @RequestMapping(value = "/doubledepartment/selectTotalnumByFid/{id}",method= RequestMethod.GET)
-    public Integer selectTotalnumByFid(@Param("id") Integer id){
+    public Integer selectTotalnumByFid(@Param("id") Long id){
         return doubleDepartmentService.selectTotalnumByFid(id);
     }
     /**
@@ -115,7 +115,7 @@ public class DoubleDepartmentController {
      * @date: 2019/6/12 17:50
      */
     @RequestMapping(value = "/doubledepartment/delete/{id}",method= RequestMethod.DELETE)
-    public  boolean deleteDoubleDepartment(@Param("id")Integer id){
+    public  boolean deleteDoubleDepartment(@Param("id")Long id){
         return doubleDepartmentService.delete(id);
     }
 

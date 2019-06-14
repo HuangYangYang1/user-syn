@@ -18,23 +18,23 @@ public interface UserPostMapper {
 
     //根据岗位id查看用户列表
     @Select("select * from t_user_post up,t_user u where  up.post_id=#{id} and u.id=up.user_id")
-    List<TUser> selectStudentByid(@Param("id") int id);
+    List<TUser> selectStudentByid(@Param("id") Long id);
 
     //查询岗位下的用户数量
     @Select("select count(*) from t_user_post where post_id=#{id}")
-    int selectUserNumByPid(@Param("id") int id);
+    int selectUserNumByPid(@Param("id") Long id);
 
     //查询用户的岗位
     @Select("select p.full_name from t_user_post up,t_post p where up.user_id=#{id} and p.id=up.post_id")
-    String selectPostByUserid(@Param("id") int id);
+    String selectPostByUserid(@Param("id") Long id);
 
     //根据用户id删除用户
     @Delete("delete from t_user_post where user_id=#{id}")
-    boolean deleteByUserid(Integer id);
+    boolean deleteByUserid(Long id);
 
     //根据岗位id删除用户
     @Delete("delete from t_user_post where post_id=#{id}")
-    boolean deleteByPostid(Integer id);
+    boolean deleteByPostid(Long id);
 
     //添加用户
     @Insert("insert into t_user_post values(#{id},#{user_id},#{post_id}" +

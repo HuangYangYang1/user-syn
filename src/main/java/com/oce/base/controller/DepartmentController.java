@@ -39,7 +39,7 @@ public class DepartmentController {
      * @date: 2019/6/12 17:06
      */
     @RequestMapping(value = "/dpartment/deleteByid/{id}",method = RequestMethod.DELETE)
-    public boolean deleteByid(@PathVariable("id") Integer id){
+    public boolean deleteByid(@PathVariable("id") Long id){
         return departmentService.deleteDepartmentByid(id);
     }
     /**
@@ -81,7 +81,7 @@ public class DepartmentController {
      * @date: 2019/6/12 17:01
      */
     @RequestMapping(value = "/department/selectByid/{id}",method = RequestMethod.GET)
-    public TDepartment selectAllDepartment(@PathVariable("id")Integer id){
+    public TDepartment selectAllDepartment(@PathVariable("id")Long id){
         return departmentService.selectByid(id);
     }
     /**

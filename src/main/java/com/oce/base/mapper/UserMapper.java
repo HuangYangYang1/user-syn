@@ -38,7 +38,7 @@ public interface UserMapper {
 
     //根据用户id删除用户
     @Delete("delete from t_user where id=#{id}")
-    public boolean deleteByid(@Param("id") Integer id);
+    public boolean deleteByid(@Param("id") Long id);
 
     //添加用户
     @Insert("insert into t_user values(#{id},#{state},#{name},#{login_id}" +

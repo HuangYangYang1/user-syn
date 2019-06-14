@@ -57,7 +57,7 @@ public class PostController {
      * @date: 2019/6/12 17:54
      */
     @RequestMapping(value = "/post/deleteByid/{id}",method = RequestMethod.DELETE)
-    public boolean deletePostByid(@Param("id") Integer id){
+    public boolean deletePostByid(@Param("id") Long id){
         return postService.deletePostByid(id);
     }
     /**
@@ -70,50 +70,105 @@ public class PostController {
     public boolean deletePostBySN(@Param("short_name") String short_name){
         return postService.deletePostBySN(short_name);
     }
+    /**
+     * @param: [full_name] 岗位全称
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 17:55
+     */
     @RequestMapping(value = "/post/deleteByFN/{full_name}",method = RequestMethod.DELETE)
     public boolean deletePostByFN(@Param("full_name") String full_name){
         return postService.deletePostByFN(full_name);
     }
+    /**
+     * @param: [id] 岗位id
+     * @return: TPost  岗位实体信息
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 17:56
+     */
     @RequestMapping(value = "/post/selectByid/{id}",method = RequestMethod.GET)
-    public TPost selectPostByid(@Param("id") Integer id){
+    public TPost selectPostByid(@Param("id") Long id){
         return postService.selectByid(id);
     }
+    /**
+     * @param: [short_ame] 岗位简称
+     * @return: TPost  岗位实体信息
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 17:56
+     */
     @RequestMapping(value = "/post/selectBySN/{short_name}",method = RequestMethod.GET)
     public TPost selectPostBySN(@Param("short_name") String short_name){
         return postService.selectBySN(short_name);
     }
+    /**
+     * @param: [full_ame] 岗位全称
+     * @return: TPost  岗位实体信息
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 17:56
+     */
     @RequestMapping(value = "/post/selectByFN/{full_name}",method = RequestMethod.GET)
     public TPost selectPostByFN(@Param("full_name") String full_name){
         return postService.selectByFN(full_name);
     }
+    /**
+     * @param:
+     * @return: int  岗位数量
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 17:57
+     */
     @RequestMapping(value = "/post/selectTotalCount",method = RequestMethod.GET)
     public int selectTotalCount(){
         return postService.selectCount();
     }
-
+    /**
+     * @param: [user] 用户与岗位实体
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:10
+     */
     @RequestMapping(value = "/userpost/add",method = RequestMethod.POST)
     public boolean insertUserPost(TUserPost userPost){
         return userPostService.insert(userPost);
     }
-
+    /**
+     * @param: [id] 岗位id
+     * @return: int 同一个岗位的用户数量
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:13
+     */
     @RequestMapping(value = "/userpost/selectUserNumByPid/{id}",method = RequestMethod.GET)
-    public int selectUserNumByPid(@Param("id")Integer id){
+    public int selectUserNumByPid(@Param("id")Long id){
         return userPostService.selectUserNumByPid(id);
     }
+    /**
+     * @param: [id] 用户id
+     * @return: int 岗位id
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:13
+     */
     @RequestMapping(value = "/userpost/selectPostByUserid/{id}",method = RequestMethod.GET)
-    public String selectPostByUserid(@Param("id")Integer id){
+    public String selectPostByUserid(@Param("id")Long id){
         return userPostService.selectPostByUserid(id);
     }
+    /**
+     * @param: [id] 岗位id
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:16
+     */
     @RequestMapping(value = "/post/deleteByPostid/{id}",method = RequestMethod.DELETE)
-    public boolean deleteByPostid(@Param("id") Integer id){
+    public boolean deleteByPostid(@Param("id") Long id){
         return userPostService.deleteByPostid(id);
     }
+    /**
+     * @param: [id] 用户id
+     * @return: boolean
+     * @author: Jiacheng.xu
+     * @date: 2019/6/12 18:16
+     */
     @RequestMapping(value = "/post/deleteByUserid/{id}",method = RequestMethod.DELETE)
-    public boolean deleteByUserid(@Param("id") Integer id){
+    public boolean deleteByUserid(@Param("id") Long id){
         return userPostService.deleteByUserid(id);
-
-
-
     }
 
 //    @RequestMapping(value = "/user/insert")

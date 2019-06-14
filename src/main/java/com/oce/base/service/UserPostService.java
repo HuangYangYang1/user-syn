@@ -40,7 +40,7 @@ public class UserPostService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:13
      */
-    public int selectUserNumByPid(Integer id){
+    public int selectUserNumByPid(Long id){
 
           return   userPostMapper.selectUserNumByPid(id);
     }
@@ -50,7 +50,7 @@ public class UserPostService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:13
      */
-    public String selectPostByUserid(Integer id){
+    public String selectPostByUserid(Long id){
         return  userPostMapper.selectPostByUserid(id);
     }
     /**
@@ -70,7 +70,7 @@ public class UserPostService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:16
      */
-    public boolean deleteByPostid(Integer id){
+    public boolean deleteByPostid(Long id){
 
        return userPostMapper.deleteByPostid(id);
 
@@ -81,7 +81,7 @@ public class UserPostService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 18:16
      */
-    public boolean deleteByUserid(Integer id){
+    public boolean deleteByUserid(Long id){
 
         return userPostMapper.deleteByUserid(id);
 

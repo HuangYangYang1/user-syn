@@ -50,7 +50,7 @@ public class DoubleDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:30
      */
-    public  List<TDepartment> selectChileDepartment(Integer f_id){
+    public  List<TDepartment> selectChileDepartment(Long f_id){
 
         return departmentMapper.selectChileByid(f_id);
     }
@@ -60,7 +60,7 @@ public class DoubleDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:37
      */
-    public  List<TDepartment> selectAllDepartmentByid(Integer f_id){
+    public  List<TDepartment> selectAllDepartmentByid(Long f_id){
 
         return departmentMapper.selectAllDepartmentByid(f_id);
     }
@@ -70,7 +70,7 @@ public class DoubleDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:39
      */
-    public  List<Integer> selectChileDepartmentidByid(Integer f_id){
+    public  List<Integer> selectChileDepartmentidByid(Long f_id){
 
         return departmentMapper.selectChileidByid(f_id);
     }
@@ -80,7 +80,7 @@ public class DoubleDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:40
      */
-    public  List<Integer> selectAllDepartmentidByid(Integer f_id){
+    public  List<Integer> selectAllDepartmentidByid(Long f_id){
 
         return departmentMapper.selectAllDepartmentidByid(f_id);
     }
@@ -90,7 +90,7 @@ public class DoubleDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:46
      */
-    public  Integer selectFatheridByid(Integer c_id){
+    public  Integer selectFatheridByid(Long c_id){
 
         return departmentMapper.selectFatherByid(c_id);
     }
@@ -100,7 +100,7 @@ public class DoubleDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:48
      */
-    public  int selectTotaChilenumByid(Integer f_id){
+    public  int selectTotaChilenumByid(Long f_id){
 
         return departmentMapper.selectTotaChilenumByid(f_id);
     }
@@ -110,7 +110,7 @@ public class DoubleDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:48
      */
-    public  int selectTotalnumByFid(Integer f_id){
+    public  int selectTotalnumByFid(Long f_id){
 
         return departmentMapper.selectTotalnumByFid(f_id);
     }
@@ -121,7 +121,7 @@ public class DoubleDepartmentService {
      * @author: Jiacheng.xu
      * @date: 2019/6/12 17:50
      */
-    public boolean delete(Integer id){
+    public boolean delete(Long id){
 
         boolean flag=false;
         try{
